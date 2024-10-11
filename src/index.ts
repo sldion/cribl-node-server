@@ -6,7 +6,7 @@ const port = process.env.PORT || 3000;
 
 const logRouter = require('./routes/logs');
 
-app.use('/logs', logRouter);
+app.use('/api/logs', logRouter);
 
 
 app.get('/', (req, res) => {
