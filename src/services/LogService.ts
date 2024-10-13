@@ -2,7 +2,7 @@ import { log } from 'console';
 import fs from 'fs';
 import readline from "readline"
 
-const getlines = async (filename, lastN, filter) => {
+export const getLines = async (filename, lastN, filter): Promise<String[]> => {
     const readStream = fs.createReadStream(`/var/log/${filename}`);
 
     const rl = readline.createInterface({
@@ -45,7 +45,7 @@ export async function getLog(filename, lastN = 10, filter) {
 
         //Hardcode var/log since thats what we care about
 
-        const lines = await getlines(filename, lastN)
+        const lines = await getLines(filename, lastN, filter)
 
         console.log(lines)
         // readStream.on('error', (err: Error) => {
