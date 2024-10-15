@@ -1,6 +1,42 @@
 
-This a node.js application writen with the express.js framework.
+This a node.js application writen with the express.js framework. It is 
 
-## Running the Application
+#  Requirements
+
+1. node.js =20.*.*
+2. npm=10.*.*
+2. *nix OS
+4. Docker
+
+
+# Development 
+## Running the Application Locally 
+
+Install the packages by using:
+`bash
+npm install --include-dev
+`
+
+You can run the dev server by running:
+
+```shell
+npm run start-dev
+```
+
+You can build with the command `npm run build`
+
+
 
 Dev server can be run by using 
+
+
+## Running the Tests 
+
+The tests are run via Docker through the Dockerfile.test file. This allows the tests to run in a controlled fresh environment
+
+Run the tests with:
+
+```sh
+docker build -t cribl-image-test  -f Dockerfile.test . && docker run cribl-image-test:latest npm test
+```
+

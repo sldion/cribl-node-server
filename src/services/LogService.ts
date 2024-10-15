@@ -48,12 +48,7 @@ export async function getLog(filename, lastN = 10, filter) {
         const lines = await getLines(filename, lastN, filter)
 
         console.log(lines)
-        // readStream.on('error', (err: Error) => {
-        //     console.error(err);
-        // });
-        // readStream.on('end', () => {
-        //     console.log('File read complete');
-        // });
+        return lines
     }
     catch (err) {
         log(`Could not open file ${filename}`)

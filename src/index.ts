@@ -1,10 +1,13 @@
 import express, { Request, Response } from 'express';
 
+import swaggerJsDoc from 'swagger-jsdoc';
+
+const swaggerUi = require('swagger-ui-express')
+const logRouter = require('./routes/logs');
+
+
 const app = express();
 const port = process.env.PORT || 3000;
-const logRouter = require('./routes/logs');
-const swaggerUi = require('swagger-ui-express');
-const swaggerJsDoc = require('swagger-jsdoc');
 
 const options = {
     definition: {
@@ -30,6 +33,8 @@ app.get('/api-docs', swaggerUi.setup(specs, {
     filter: true, // Enable filters
 }));
 app.use('/api/logs', logRouter);
+
+
 
 app.get('/', (req, res) => {
     res.json({ 'message': 'ok' });

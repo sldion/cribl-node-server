@@ -2,12 +2,12 @@
   "name": "cribl-node-server",
   "version": "1.0.0",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "test": "jest",
-    "start": "ts-node-dev --respawn src/index.ts",
+    "clean": "docker image rm cribl-iamge-test",
+    "start-dev": "nodemon src/index.ts",
     "build": "tsc",
-    "serve": "node dist/index.js"
+    "serve": "node dist/index.ts"
   },
   "jest": {
     "preset": "ts-jest",
@@ -28,7 +28,6 @@
     "express": "^4.21.1",
     "nodemon": "^3.1.7",
     "ts-node": "^10.9.2",
-    "ts-node-dev": "^2.0.0",
     "typescript": "^5.6.3"
   },
   "dependencies": {

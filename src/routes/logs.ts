@@ -20,13 +20,4 @@ import { getFilterParams } from '../utils/utils';
 router.get('/logs', get);
 
 
-/* POST programming language */
-// router.post('/', logRouter.create);
-
-// /* PUT programming language */
-// router.put('/:id', logRouter.update);
-
-// /* DELETE programming language */
-// router.delete('/:id', logRouter.remove);
-
 module.exports = router;
