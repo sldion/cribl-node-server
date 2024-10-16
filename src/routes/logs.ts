@@ -12,7 +12,20 @@ import { getFilterParams } from '../utils/utils';
  *   get:
  *     summary: Get all logs
  *     tags: [Users]
- *     parameters: ${getFilterParams(router).map((param) => param).join(',')}
+ *     parameters: 
+ *      - name: filename
+ *        required: true
+ *        description: filename of the log file
+ *      - name: LastN
+ *        requied: false
+ *        default: 10
+ *        description: Last N lines of the file
+ *      - name: filter
+ *        requied: false
+ *        type: String
+ *        default: ''
+ *        description: filter the lines
+ * 
  *     responses:
  *       200:
  *         description: Users retrieved successfully

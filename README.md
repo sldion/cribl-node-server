@@ -26,13 +26,13 @@ npm run start-dev
 You can build with the command `npm run build`
 
 
-
-Dev server can be run by using 
+### The UI
+A swagger UI is available when running locally at http://localhost:3000/api-docs
 
 
 ## Running the Tests 
 
-The tests are run via Docker through the Dockerfile.test file. This allows the tests to run in a controlled fresh environment
+The tests are run via Dockesr through the Dockerfile.test file. This allows the tests to run in a controlled fresh environment
 
 Run the tests with:
 
