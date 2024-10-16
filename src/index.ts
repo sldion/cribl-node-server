@@ -6,8 +6,10 @@ const swaggerUi = require('swagger-ui-express')
 const logRouter = require('./routes/logs');
 
 
-const app = express();
+export const app = express();
 const port = process.env.PORT || 3000;
+
+app.use('/api', logRouter);
 
 const options = {
     definition: {
@@ -18,7 +20,7 @@ const options = {
         },
         servers: [
             {
-                url: 'http://localhost:3000',
+                url: 'http://localhost:3000/api',
             },
         ],
     },
@@ -28,11 +30,12 @@ const options = {
 
 const specs = swaggerJsDoc(options);
 
-app.use('/api-docs', swaggerUi.serve);
-app.get('/api-docs', swaggerUi.setup(specs, {
-    filter: true, // Enable filters
-}));
-app.use('/api/logs', logRouter);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+
+// app.get('/api-docs', swaggerUi.setup(specs, {
+//     filter: true, // Enable filters
+// }));
+
 
 
 
@@ -43,3 +46,5 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });
+
+

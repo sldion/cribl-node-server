@@ -43,12 +43,11 @@ export async function getLog(filename, lastN = 10, filter) {
 
     try {
 
-        //Hardcode var/log since thats what we care about
+        // Hardcode var/log since thats what we care about
 
         const lines = await getLines(filename, lastN, filter)
 
-        console.log(lines)
-        return lines
+        return lines.reverse()
     }
     catch (err) {
         log(`Could not open file ${filename}`)
